@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter basename="/dashboard">
+      <BrowserRouter basename="/test">
         <NavBar />
         <CheakAllow />
       </BrowserRouter>
