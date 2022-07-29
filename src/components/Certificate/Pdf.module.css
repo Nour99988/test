@@ -1,0 +1,36 @@
+.pdf {
+  border: 7px solid rgb(121, 118, 118);
+  margin: 55px;
+  width: 90vw;
+}
+.hadding {
+  color: #eb8324 !important;
+}
+.image {
+  width: 21vw;
+  float: right;
+}
+.paragraph {
+  font-size: 20px;
+}
+.qr {
+  background-image: url("../img/icons (2) (1).png");
+  background-repeat: no-repeat;
+  width: 84%;
+  height: 72%;
+  padding: 4rem;
+}
+.head {
+  font-size: 18px;
+}
+
+.btn {
+  position: absolute;
+  top: 290px;
+  right: 159px;
+  background-color: #fff;
+  color: #eb8324;
+  border: 1px solid #aaa;
+  border-radius: 15px;
+  font-size: 32px;
+}

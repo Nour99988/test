@@ -1,0 +1,99 @@
+
+.edit {
+    display: flex;
+}
+.card {
+    margin: auto;
+    width : 650px;
+}
+ label {
+    font-size: 20px;
+}
+.formcontrol {
+    width: 350px;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #a5a3a3;
+    appearance: none;
+    margin: 2px 0;
+    border-radius: 0.25rem;
+    /* transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; */
+}
+
+.formcontrol:focus {
+    border:1px solid #f2a054 !important;
+}
+.button {
+    width: 350px;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #212529;
+    background-color: #f2a054;
+    background-clip: padding-box;
+    border: 1px solid #f2a054;
+    appearance: none;
+    margin:0  0 2px;
+    border-radius: 0.25rem;
+}
+.spans {
+    margin-left: 26%;
+    color : red;
+ }
+ #col {
+    text-align: center;
+}
+@media (max-width:750px) {
+   .card {
+    margin-top: 10%;
+   }
+
+}
+@media (max-width:590px) {
+    #col{
+        text-align: left;
+    }}
+@media (max-width:540px) {
+    #col{
+        text-align: center;
+    }
+    .formcontrol {
+        width:482px;
+    }
+    .button{
+        width: 482px;
+    }
+}
+@media (max-width:440px) {
+    #col {
+        text-align: left;
+        margin-left: 0;
+    }
+    .spans {
+        margin-left: 0;
+
+     }
+    .formcontrol {
+        width: 326px;
+    }
+    .button{
+        width: 326px;
+    }
+}
+@media (max-width:280px) {
+    .col-sm-1 {
+       margin-left: 0 !important;
+    }
+    .formcontrol {
+        width: 236px;
+    }
+    .button{
+        width: 236px;
+    }
+}

@@ -1,0 +1,117 @@
+.contenar {
+  position: relative;
+  height: calc(100vh - 90px);
+}
+
+.contenar .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 496px;
+}
+
+.contenar .content .pattren {
+  position: absolute;
+  top: 50%;
+  right: -165px;
+  transform: translate(0, -50%);
+  width: 326.83px;
+}
+.contenar .content .logo img {
+  margin-bottom: 16px;
+  width: 359px;
+}
+.contenar .content .paragraph {
+  margin-top: -16px;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  color: #282828;
+}
+.contenar .content .input {
+  width: 100%;
+  position: relative;
+  margin-top: 16px;
+}
+
+.contenar .content .input input {
+  width: 100%;
+  height: 44px;
+  padding-right: 61px;
+  border-radius: 18px;
+  padding-left: 35px;
+}
+.contenar .content .input input:focus {
+  border: none;
+}
+.contenar .content .input span {
+  position: absolute;
+  right: 5px;
+  top: 14px;
+  padding: 0 16px 24px 12px;
+  margin: -5px 0;
+}
+.contenar .content .input p {
+  position: absolute;
+  right: 44px;
+  top: 14px;
+  padding: 0 12px;
+  height: 33px;
+  margin: -5px 0;
+}
+.contenar .filter {
+  display: grid;
+  justify-content: center;
+  position: relative;
+  top: 190px;
+}
+@media (max-width: 540px) {
+  .contenar .content .pattren {
+    display: none;
+  }
+}
+@media (max-width: 490px) {
+  .contenar {
+    left: 15px;
+  }
+  .contenar .content .input input {
+    width: 77%;
+  }
+  .contenar .content .input span {
+    right: 54px;
+  }
+  .contenar .content .input p {
+    right: 94px;
+  }
+  .contenar .content .logo img {
+    width: 295px;
+  }
+  .contenar .content .paragraph {
+    font-size: 15px;
+    top: 95px;
+  }
+}
+@media (max-width: 360px) {
+  .contenar {
+    left: 18px;
+  }
+  .contenar .content .input input {
+    width: 67%;
+  }
+  .contenar .content .input span {
+    right: 80px;
+  }
+  .contenar .content .input p {
+    right: 118px;
+  }
+  .contenar .content .logo img {
+    width: 256px;
+  }
+  .contenar .content .paragraph {
+    font-size: 13px;
+  }
+}
+span.search{
+  cursor: pointer;
+}

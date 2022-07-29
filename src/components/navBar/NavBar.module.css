@@ -1,0 +1,70 @@
+.contenar {
+  position: relative;
+  padding: 22px 33px 0;
+}
+.contenar nav.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contenar nav.nav .logo {
+  display: flex;
+}
+
+.contenar nav.nav .logo img {
+  width: 75px;
+  margin-top: -14px;
+}
+.contenar nav.nav .logo .link {
+  font-size: 18px;
+  margin-left: 30px;
+  padding-top: 7px;
+  margin-bottom: 0;
+  color: #282828;
+  text-decoration: none;
+}
+.contenar nav.nav .logo span .linkAdd {
+  margin-top: 0px;
+  float: right;
+  color: #282828 !important;
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.contenar nav.nav .logo span .logout {
+  cursor: pointer;
+  margin-top: 0px;
+  float: right;
+  color: #282828 !important;
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.contenar nav.nav .logo span .linkEdit {
+  float: right;
+  color: #282828 !important;
+  display: block;
+  padding: 0.5rem 0rem;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.contenar nav.nav .contact p {
+  font-size: 18px;
+  padding-top: 9px;
+}
+.contenar nav.nav .contact p span {
+  padding-right: 9px;
+  padding-left: 9px;
+}
+@media (max-width: 800px) {
+  .contenar nav.nav {
+    display: block;
+  }
+}
+@media (max-width: 510px) {
+  .contenar nav.nav .contact p span.spans {
+    display: block;
+  }
+}

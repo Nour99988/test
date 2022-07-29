@@ -1,0 +1,67 @@
+.Login {
+    display: flex;
+    height: 79vh;
+}
+.card {
+    margin: auto; 
+    border: 1px solid #f2a054;
+    width : 430px;
+    height: 422px;
+    border-radius: 25px;
+    padding: 1% 2.5% ;
+
+}
+div label {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+div input {
+    width: 350px;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #a5a3a3;
+    appearance: none;
+    margin: 2px 0;
+    border-radius: 0.25rem;
+}
+.spans {
+    color:red;
+}
+.button {
+    margin: 25px 0 5rem;
+    background-color: #f2a054;
+    border: 1px solid #f2a054;
+    font-size: 20px;
+}
+.Link {
+    color: #090a0a !important;
+    text-decoration: none !important;
+    margin-left: 112px;
+
+}
+@media (max-width:920px) {
+    .card{
+        height: 520px;
+       padding: 6% 5.5%;
+    }
+}
+@media (max-width:540px) {
+    .card{
+       padding: 9% 9%;
+    }
+}
+@media (max-width:420px) {
+    .card{
+        width: 346px;
+        padding: 9% 4.5%;
+    }
+    div input {
+        width: 302px;
+    }
+    
+}

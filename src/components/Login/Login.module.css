@@ -1,0 +1,70 @@
+.Login {
+    display: flex;
+    height: 85vh;
+}
+.Login .card {
+    margin: auto; 
+    border: 1px solid #f2a054;
+    width : 430px;
+    height: 330px;
+    border-radius: 25px;
+    padding: 2.5% 3% ;
+
+}
+div label {
+    font-size: 30px;
+    margin-bottom: 2px;
+}
+.Login .card div.inputs {
+    width: 350px;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #a5a3a3;
+    appearance: none;
+    margin: 2px 0;
+    border-radius: 0.25rem;
+}
+.Login .card .spans {
+    color:red;
+}
+.Login .card .button {
+    margin-top: 15px;
+    background-color: #f2a054;
+    border: 1px solid #f2a054;
+    font-size: 20px;
+}
+.Login .card .Link {
+    color: #090a0a !important;
+    text-decoration: none !important;
+    margin-left: 112px;
+    margin-top: 5px;
+
+}
+@media (max-width:920px) {
+   .Login .card{
+       padding: 6% 5.5%;
+    }
+}
+@media (max-width:540px) {
+    .Login .card{
+       padding: 9% 8.5%;
+    }
+}
+@media (max-width:420px) {
+    .Login .card{
+        width: 300px;
+        padding: 9% 4.5%;
+    }
+    .Login .card div.inputs {
+        width: 257px ;
+    }
+    .Login .card .Link{
+        margin-left: 79px;
+    }
+    
+}
