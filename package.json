@@ -3,7 +3,8 @@
   "homepage": "https://nour99988.github.io/test",
   "version": "0.1.0",
   "engines": {
-    "node": "16.16.0"
+    "node": "16.16.0",
+    "npm": "8.11.0"
   },
   "private": true,
   "dependencies": {
