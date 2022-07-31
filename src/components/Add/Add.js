@@ -46,13 +46,13 @@ const Add = () => {
     const errors = {};
     if (!value.firstName) {
       errors.firstName = "firstName is required!!";
-    } else if (value.firstName.length < 3) {
-      errors.firstName = "firstName is must be more 4 characters !!";
+    } else if (value.firstName.length < 2) {
+      errors.firstName = "firstName is must be more 3 characters !!";
     }
     if (!value.lastName) {
       errors.lastName = "lastName is required!!";
-    } else if (value.lastName.length < 3) {
-      errors.lastName = "lastName is must be more 4 characters !!";
+    } else if (value.lastName.length < 2) {
+      errors.lastName = "lastName is must be more 3 characters !!";
     }
     if (!value.specification) {
       errors.specification = "specification is required!!";
@@ -70,7 +70,7 @@ const Add = () => {
     }
     if (!value.duration) {
       errors.duration = "duration is required!!";
-    } else if (value.duration < 1) {
+    } else if (value.duration < 0) {
       errors.duration = "duration is must be more 0 number!!";
     }
     if (!value.startDate) {
@@ -99,9 +99,9 @@ const Add = () => {
       duration: data.duration,
       startDate: data.startDate,
       endDate: data.endDate,
-      projects: data.projects.split(","),
-      hardSkills: data.hardSkills.split(","),
-      softSkills: data.softSkills.split(","),
+      projects: data.projects,
+      hardSkills: data.hardSkills,
+      softSkills: data.softSkills,
       isEmployee: data.isEmployee,
       isIntern: data.isIntern,
     };
@@ -124,6 +124,7 @@ const Add = () => {
         setContent(" تأكد من الاتصال بالانترنت ");
       });
   };
+
   return (
     <>
       <form noValidate className="px-3" onSubmit={handelsubmition}>

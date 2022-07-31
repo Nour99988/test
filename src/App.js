@@ -12,14 +12,8 @@ function App() {
   const [cookies] = useCookies("token");
   const dispatch = useDispatch();
 
-  const fetchEmployees = async () => {
-    await axios
-      .get("https://focalx-cert-generator.herokuapp.com/v1/members", {
-        headers: {
-          Authorization: "bearer " + cookies.token,
-        },
-      })
-      .then((res) => dispatch(setAdmin({ isLogin: "admin" })));
+  const fetchEmployees = () => {
+    cookies.token && dispatch(setAdmin({ isLogin: "admin" }));
   };
   useEffect(() => {
     fetchEmployees();

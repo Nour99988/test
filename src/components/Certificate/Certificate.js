@@ -9,9 +9,9 @@ const Certificate = () => {
   console.log(member);
   const ref = React.createRef();
   const options = {
-    orientation: "Portrait ",
+    orientation: "landscape ",
     unit: "px",
-    format: [400, 400],
+    format: [450, 860],
   };
   return (
     <>
@@ -21,7 +21,7 @@ const Certificate = () => {
         options={options}
         x={27}
         y={20}
-        scale={0.5}
+        scale={1}
       >
         {({ toPdf }) => (
           <button onClick={toPdf} className={style.btn}>
