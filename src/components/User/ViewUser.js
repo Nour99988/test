@@ -30,12 +30,12 @@ export default function ViewUser() {
                   <b style={{ color: "#eb8324" }}>Name : </b>
                   {data.firstName} {data.lastName}
                 </p>
-                <p>
-                  <b style={{ color: "#eb8324" }}>memberId</b> :{data.memberId}
-                </p>
                 {/* <p>
-                  <b style={{ color: "#eb8324" }}>generatedId </b>:{data.generatedId}
+                  <b style={{ color: "#eb8324" }}>memberId</b> :{data.memberId}
                 </p> */}
+                <p>
+                  <b style={{ color: "#eb8324" }}>generatedId </b>:{data.generatedId}
+                </p>
                 <p>
                   <b style={{ color: "#eb8324" }}>specification </b> :{data.specification}
                 </p>
