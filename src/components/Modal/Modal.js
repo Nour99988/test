@@ -10,22 +10,26 @@ import {
   MDBModalFooter,
 } from "mdb-react-ui-kit";
 
-export default function Modal({ close, content, removeButton, setDel }) {
+export default function Modal({ close, content, removeButton, setDel, setRemoveButton }) {
   const [basicModal, setBasicModal] = useState(true);
 
   const toggleShow = () => setBasicModal(basicModal);
+  const closeModal = () => {
+    close(false);
+  };
   const handelDelete = () => {
     close(false);
     setDel(true);
+    setRemoveButton(false);
     // del(true);
   };
   return (
     <>
-      <MDBModal show={basicModal} tabIndex="-1">
+      <MDBModal show={basicModal} tabIndex="-1" onClick={closeModal}>
         <MDBModalDialog>
           <MDBModalContent>
             <MDBModalHeader>
-              <MDBBtn className="btn-close" color="none" onClick={() => close(false)}></MDBBtn>
+              <MDBBtn className="btn-close" color="none" onClick={closeModal}></MDBBtn>
             </MDBModalHeader>
             <MDBModalBody>{content}</MDBModalBody>
 
@@ -35,7 +39,7 @@ export default function Modal({ close, content, removeButton, setDel }) {
                   remove
                 </MDBBtn>
               )}
-              <MDBBtn color="secondary" style={{ marginLeft: "auto" }} onClick={() => close(false)}>
+              <MDBBtn color="secondary" style={{ marginLeft: "auto" }} onClick={closeModal}>
                 Close
               </MDBBtn>
             </MDBModalFooter>

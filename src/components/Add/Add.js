@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext } from "react";
+import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import axios from "axios";
 import Switch from "@material-ui/core/Switch";
@@ -84,7 +84,7 @@ const Add = () => {
   };
   useEffect(() => {
     console.log(formError);
-    if (Object.keys(formError).length == 0 && isSubmit) {
+    if (Object.keys(formError).length === 0 && isSubmit) {
       sendData();
     }
   }, [formError]);
@@ -113,15 +113,17 @@ const Add = () => {
       })
       .then((res) => {
         document.body.style.cursor = "default";
-        console.log(res);
         setShow(true);
         setContent("تم اضافة موظف بنجاح");
       })
       .catch((err) => {
         document.body.style.cursor = "default";
-        console.log(err);
         setShow(true);
-        setContent(" تأكد من الاتصال بالانترنت ");
+        if (err.response.data.error === "member already exists") {
+          setContent(" member already exists");
+        } else {
+          setContent(" Check the internet connection");
+        }
       });
   };
 

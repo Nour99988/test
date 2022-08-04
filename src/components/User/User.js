@@ -13,6 +13,7 @@ import Modal from "../Modal/Modal";
 const Users = () => {
   const [cookies] = useCookies("token");
   const [show, setShow] = useState(false);
+  const [hideLoading, setHideLoading] = useState(false);
   const [del, setDel] = useState(false);
   const [removeButton, setRemoveButton] = useState(false);
   const [idForDel, setIdForDel] = useState("");
@@ -32,6 +33,7 @@ const Users = () => {
       .catch((err) => {
         setShow(true);
         setContent("cheak the intenet connection");
+        setHideLoading(true);
       });
   };
   useEffect(() => {
@@ -57,9 +59,10 @@ const Users = () => {
   //     console.log(member);
   //   }
   // };
-  const proupDelete = async (id) => {
+  const proupDelete = async (id, name) => {
     setIdForDel(id);
-    setContent("Do You Want Remeove Member");
+    console.log(name);
+    setContent("Do You Want Remove " + name);
     setShow(true);
     setRemoveButton(true);
   };
@@ -79,7 +82,9 @@ const Users = () => {
         })
         .then((res) => {
           console.log(res);
-          dispatch(setDeleteMember(id));
+          const newMembers = member.filter((mem) => mem.memberId !== id);
+          setMember(newMembers);
+          dispatch(setDeleteMember(newMembers));
           document.body.style.cursor = "default";
         })
         .catch((err) => {
@@ -95,7 +100,7 @@ const Users = () => {
       <Fragment key={user.memberId}>
         <div className="col-md-4 mt-40">
           <div className={style.card}>
-            <p className={style.x} onClick={() => proupDelete(user.memberId)}>
+            <p className={style.x} onClick={() => proupDelete(user.memberId, user.firstName)}>
               X
             </p>
             <p>
@@ -149,10 +154,20 @@ const Users = () => {
             <Row className="m-0">{render}</Row>
           </div>
         </>
-      ) : (
+      ) : !hideLoading ? (
         <Loading />
+      ) : (
+        <p className={style.faild}>please Ckeak the intenet connection and reload this page</p>
       )}
-      {show && <Modal close={setShow} content={content} removeButton={removeButton} setDel={setDel} />}
+      {show && (
+        <Modal
+          close={setShow}
+          content={content}
+          removeButton={removeButton}
+          setRemoveButton={setRemoveButton}
+          setDel={setDel}
+        />
+      )}
     </>
   );
 };

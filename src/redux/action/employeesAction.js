@@ -18,9 +18,9 @@ export const setMember = (payload) => {
     payload: payload,
   };
 };
-export const setDeleteMember = (id) => {
+export const setDeleteMember = (payload) => {
   return {
     type: deleteMember.DELETE_MEMBER,
-    payload: id,
+    payload,
   };
 };
