@@ -7,18 +7,21 @@ import { setEmployees } from "../../redux/action/employeesAction";
 import style from "./User.module.css";
 import { useCookies } from "react-cookie";
 import Loading from "../Loading/Loading";
+import { setDeleteMember } from "../../redux/action/employeesAction";
 import Modal from "../Modal/Modal";
 
 const Users = () => {
   const [cookies] = useCookies("token");
   const [show, setShow] = useState(false);
+  const [del, setDel] = useState(false);
+  const [removeButton, setRemoveButton] = useState(false);
+  const [idForDel, setIdForDel] = useState("");
   const [content, setContent] = useState("");
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
   const [member, setMember] = useState([]);
   const state = useSelector((state) => state.allMembers);
   const fetchEmployees = async () => {
-    console.log("1");
     await axios
       .get("https://focalx-cert-generator.herokuapp.com/v1/members", {
         headers: {
@@ -39,37 +42,60 @@ const Users = () => {
     setMember(state);
   }, [state]);
 
-  const Handlerender = (e) => {
-    const { value } = e.target;
-    if (value === "Intern") {
-      const Interns = state.filter((emp) => emp.isIntern === true);
-      setMember(Interns);
-      console.log(member);
-    } else if (value === "Employee") {
-      const employees = state.filter((emp) => emp.isEmployee === true);
-      setMember(employees);
-      console.log(member);
-    } else if (value === "all") {
-      setMember(state);
-      console.log(member);
-    }
+  // const Handlerender = (e) => {
+  //   const { value } = e.target;
+  //   if (value === "Intern") {
+  //     const Interns = state.filter((emp) => emp.isIntern === true);
+  //     setMember(Interns);
+  //     console.log(member);
+  //   } else if (value === "Employee") {
+  //     const employees = state.filter((emp) => emp.isEmployee === true);
+  //     setMember(employees);
+  //     console.log(member);
+  //   } else if (value === "all") {
+  //     setMember(state);
+  //     console.log(member);
+  //   }
+  // };
+  const proupDelete = async (id) => {
+    setIdForDel(id);
+    setContent("Do You Want Remeove Member");
+    setShow(true);
+    setRemoveButton(true);
   };
-  const handelDel = async (id) => {
-    await axios
-      .delete(`https://focalx-cert-generator.herokuapp.com/v1/members/${id}`, {
-        headers: {
-          Authorization: "bearer " + cookies.token,
-        },
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+  useEffect(() => {
+    handelDelete(idForDel);
+  }, [del]);
+  const handelDelete = async (id) => {
+    console.log("del");
+    if (del === true) {
+      document.body.style.cursor = "wait";
+      setDel(false);
+      await axios
+        .delete(`https://focalx-cert-generator.herokuapp.com/v1/members/${id}`, {
+          headers: {
+            Authorization: "bearer " + cookies.token,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          dispatch(setDeleteMember(id));
+          document.body.style.cursor = "default";
+        })
+        .catch((err) => {
+          console.log(err);
+          document.body.style.cursor = "default";
+        });
+    } else if (!del) {
+      return;
+    }
   };
   const render = member.map((user) => {
     return (
       <Fragment key={user.memberId}>
         <div className="col-md-4 mt-40">
           <div className={style.card}>
-            <p className={style.x} onClick={() => handelDel(user.memberId)}>
+            <p className={style.x} onClick={() => proupDelete(user.memberId)}>
               X
             </p>
             <p>
@@ -105,8 +131,6 @@ const Users = () => {
       );
     });
     setMember(resultSearch);
-    console.log(state);
-    console.log(resultSearch);
   };
 
   return (
@@ -128,7 +152,7 @@ const Users = () => {
       ) : (
         <Loading />
       )}
-      {show && <Modal close={setShow} content={content} />}
+      {show && <Modal close={setShow} content={content} removeButton={removeButton} setDel={setDel} />}
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { adminTypes, employeesType } from "../contants/employeesType";
+import { adminTypes, employeesType, deleteMember } from "../contants/employeesType";
 
 const allEmployees = [];
 const isAdmin = {};
@@ -26,6 +26,9 @@ export const setMember = (state = member, { type, payload }) => {
   switch (type) {
     case employeesType.SET_MEMBER:
       return { ...payload };
+    case deleteMember.DELETE_MEMBER:
+      let members = allEmployees.filter((mem) => mem.memberId !== payload);
+      return (state = members);
 
     default:
       return state;

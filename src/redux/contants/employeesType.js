@@ -5,3 +5,7 @@ export const employeesType = {
 export const adminTypes = {
   SET_ADMIN: "SET_ADMIN",
 };
+
+export const deleteMember = {
+  DELETE_MEMBER: "DELETE_MEMBER",
+};
