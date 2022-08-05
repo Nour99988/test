@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row } from "react-bootstrap";
 import style from "./Pdf.module.css";
 import Pdf from "react-to-pdf";
 import { useSelector } from "react-redux/es/exports";
+import { useNavigate } from "react-router-dom";
 
 const Certificate = () => {
   const member = useSelector((state) => state.member);
+  const navigate = useNavigate();
   console.log(member);
   const ref = React.createRef();
   const options = {
@@ -13,6 +15,11 @@ const Certificate = () => {
     unit: "px",
     format: [450, 860],
   };
+  useEffect(() => {
+    if (Object.keys(member).length === 0) {
+      navigate("/");
+    }
+  }, [member]);
   return (
     <>
       <Pdf

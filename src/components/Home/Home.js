@@ -17,12 +17,13 @@ const Home = () => {
   const handleChange = (text) => {
     const type = text.includes(" ");
     if (type === true) {
-      const arr = text.split(" ");
-      setUrl(`member?firstName=${arr[0]}&lastName=${arr[1]}`);
+      let arr = text.split(" ");
+      let lastname = arr.pop();
+      let firstname = arr.join(" ");
+      setUrl(`member?firstName=${firstname}&lastName=${lastname}`);
     } else {
       setUrl(text);
     }
-    console.log(url);
   };
   const fetch = async () => {
     document.body.style.cursor = "wait";
@@ -60,7 +61,7 @@ const Home = () => {
             />
             <p>|</p>
             <span onClick={fetch} className={style.search}>
-              <img src={require("../images/search.svg").default} alt="safaa" />
+              <img src={require("../images/search.svg").default} alt="icon" />
             </span>
           </div>
         </div>
