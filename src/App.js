@@ -23,7 +23,7 @@ function App() {
     <div className="App">
       <BrowserRouter basename="/test">
         <NavBar />
-        {/* <CheakAllow /> */}
+        <CheakAllow />
       </BrowserRouter>
     </div>
   );
