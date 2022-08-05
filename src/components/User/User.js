@@ -70,7 +70,6 @@ const Users = () => {
     handelDelete(idForDel);
   }, [del]);
   const handelDelete = async (id) => {
-    console.log("del");
     if (del === true) {
       document.body.style.cursor = "wait";
       setDel(false);

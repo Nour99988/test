@@ -16,7 +16,8 @@ export default function Edit() {
   const [isSubmit, setIsSubmit] = useState(false);
   const { id } = useParams();
   const allEmployeeFromReducers = useSelector((state) => state.allMembers);
-  const member = allEmployeeFromReducers.find((ele) => ele.memberId == id);
+  const member = allEmployeeFromReducers.find((ele) => ele.memberId === id);
+
   useEffect(() => {
     setData(member);
   }, [id]);
@@ -100,7 +101,6 @@ export default function Edit() {
     document.body.style.cursor = "wait";
     // e.preventDefault();
     let body = {
-      memberId: data.memberId,
       generatedId: data.generatedId,
       firstName: data.firstName,
       lastName: data.lastName,
@@ -119,13 +119,13 @@ export default function Edit() {
     };
 
     await axios
-      .put("https://focalx-cert-generator.herokuapp.com/v1/members", body, {
+      .put("https://focalx-cert-generator.herokuapp.com/v1/members/" + data.memberId, body, {
         headers: {
           Authorization: "bearer " + cookies.token,
         },
       })
       .then((res) => {
-        setContentModal("لقد تمت اضافة الموظف بنجاح");
+        setContentModal("لقد تمت التعديل بنجاح");
         console.log(res);
         setShow(true);
         document.body.style.cursor = "default";
@@ -353,7 +353,7 @@ export default function Edit() {
             <div className="row m-0">
               <div className="col-sm-3"></div>
               <div className="col-sm-3">
-                <input type="submit" className={style.button} value="add" />
+                <input type="submit" className={style.button} value="Edit" />
               </div>
             </div>
           </div>

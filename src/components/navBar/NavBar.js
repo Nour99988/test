@@ -30,33 +30,33 @@ const NavBar = () => {
               Go Home
             </a>
           )}
-          <span>
-            {isAdminFromRedux.allow && (
+          {isAdminFromRedux.allow && (
+            <span>
               <Link to="add" className={style.linkAdd}>
                 add member
               </Link>
-            )}
-          </span>
-          <span>
-            {isAdminFromRedux.allow && (
+            </span>
+          )}
+          {isAdminFromRedux.allow && (
+            <span>
               <Link to="user" className={style.linkEdit}>
                 Members
               </Link>
-            )}
-          </span>
-          <span>
-            {isAdminFromRedux.allow && (
+            </span>
+          )}
+          {isAdminFromRedux.allow && (
+            <span>
               <p className={style.logout} onClick={logout}>
                 Logout
               </p>
-            )}
-          </span>
+            </span>
+          )}
         </div>
         <div className={style.contact}>
           <p>
             <span>
-              <b>Sales :</b> contact@focal-x.com{" "}
-            </span>{" "}
+              <b>Sales :</b> contact@focal-x.com
+            </span>
             | <span className={style.spans}> +963 935 033 139</span>
           </p>
         </div>
