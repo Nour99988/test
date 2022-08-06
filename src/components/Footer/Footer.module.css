@@ -1,42 +1,33 @@
 .contenar {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 0 33px;
-  }
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 33px;
+}
 
-.contenar footer.footer{
-    display: flex;
-    justify-content: space-between;
-    
+.contenar footer.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.contenar footer.footer .contact p span {
+  font-size: 18px;
+}
+.contenar footer.footer .contents p span {
+  font-size: 18px;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+@media screen and (max-width: 700px) {
+  .contenar {
+    padding: 0 10px;
   }
-  .contenar footer.footer .contact p span{
-      font-size: 18px;
+  .contenar footer.footer .contact p span {
+    font-size: 10px;
   }
   .contenar footer.footer .contents p span {
-   font-size: 18px;
-   padding-left: 9px;
-   padding-right: 9px;
+    font-size: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
-  @media (max-width:750px){
-    .contenar footer.footer {
-        display: block;
-    }
-    .contenar footer.footer .contact p span{
-        margin-left: 12px;
-        font-size: 17px;
-    }
-  }
-  @media (max-width:510px){
-    .contenar footer.footer .contact p {
-        display: block;
-    }
-    .contenar footer.footer .contents p span.spans{
-      display: block;
-    }
-  }
-  @media (max-width:360px){
-    .contenar footer.footer .contents p span {
-      font-size: 14px;
-  }
-  }
+}

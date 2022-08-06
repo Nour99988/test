@@ -1,5 +1,5 @@
 .contenar {
-  position: relative;
+  /* position: relative; */
   padding: 22px 33px 0;
 }
 
@@ -80,15 +80,19 @@
   font-size: 18px;
   padding-top: 9px;
 }
-@media screen and (max-width: 700px) {
-  .contenar nav.nav .contact p {
-    font-size: 10px;
-    padding-top: 9px;
-  }
-}
+
 .contenar nav.nav .contact p span {
   /* padding-right: 9px; */
   padding-left: 9px;
+}
+@media screen and (max-width: 700px) {
+  .contenar nav.nav .contact p {
+    font-size: 10px;
+    padding-top: 7px;
+  }
+  .contenar nav.nav .contact p span {
+    padding-left: 0px;
+  }
 }
 /* @media (max-width: 800px) {
   .contenar nav.nav {

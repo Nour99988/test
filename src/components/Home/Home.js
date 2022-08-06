@@ -59,6 +59,7 @@ const Home = () => {
               onChange={(e) => handleChange(e.target.value)}
               className="input"
             />
+
             <p>|</p>
             <span onClick={fetch} className={style.search}>
               <img src={require("../images/search.svg").default} alt="icon" />

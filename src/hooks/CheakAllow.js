@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 const CheakAllow = () => {
   const allow = useSelector((state) => state.isAdmin);
   return (
-    <div>
+    <>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pdf" element={<Certificate />} />
@@ -35,7 +35,7 @@ const CheakAllow = () => {
         )}
         <Route path="*" element={<Page404 />} />
       </Routes>
-    </div>
+    </>
   );
 };
 
