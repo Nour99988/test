@@ -18,8 +18,8 @@ const Home = () => {
     const type = text.includes(" ");
     if (type === true) {
       let arr = text.split(" ");
-      let lastname = arr.pop();
-      let firstname = arr.join(" ");
+      let lastname = arr.pop().toLowerCase();
+      let firstname = arr.join(" ").toLowerCase();
       setUrl(`member?firstName=${firstname}&lastName=${lastname}`);
     } else {
       setUrl(text);
@@ -40,6 +40,11 @@ const Home = () => {
         setShow(true);
       });
   };
+  const clickEnter = (e) => {
+    if (e.keyCode === 13) {
+      fetch();
+    }
+  };
 
   return (
     <div className={style.contenar}>
@@ -57,6 +62,7 @@ const Home = () => {
               type="text"
               placeholder="Search For Employee's Or Intern's"
               onChange={(e) => handleChange(e.target.value)}
+              onKeyUp={clickEnter}
               className="input"
             />
 
