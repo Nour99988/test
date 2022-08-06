@@ -1,13 +1,18 @@
+.margin {
+  height: 10px;
+}
 .pdf {
   border: 7px solid rgb(121, 118, 118);
-  margin: 55px;
-  width: 90vw;
+  margin-top: 55px;
+  /* width: 90vw; */
+  width: 1366px;
+  margin: auto;
 }
 .hadding {
   color: #eb8324 !important;
 }
 .image {
-  width: 21vw;
+  width: 286px;
   float: right;
 }
 .paragraph {
@@ -18,19 +23,21 @@
   background-repeat: no-repeat;
   width: 84%;
   height: 72%;
-  padding: 4rem;
+  padding: 64px;
 }
 .head {
   font-size: 18px;
 }
 
 .btn {
-  position: absolute;
-  top: 290px;
-  right: 159px;
+  /* position: absolute; */
+
+  margin: auto;
+  display: block;
   background-color: #fff;
   color: #eb8324;
   border: 1px solid #aaa;
   border-radius: 15px;
   font-size: 32px;
+  padding: 3px 25px;
 }

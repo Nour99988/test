@@ -17,11 +17,12 @@ const Certificate = () => {
   };
   useEffect(() => {
     if (Object.keys(member).length === 0) {
-      navigate("/");
+      // navigate("/");
     }
   }, [member]);
   return (
     <>
+      <div className={style.margin}></div>
       <Pdf
         targetRef={ref}
         filename={`Crtificates ${member.firstName} ${member.lastName} FocalX.pdf`}
@@ -36,6 +37,7 @@ const Certificate = () => {
           </button>
         )}
       </Pdf>
+      <div className={style.margin}></div>
       <div className={style.pdf} ref={ref}>
         <Row className="m-0">
           <div className="col-sm-3 p-5 ">
@@ -95,6 +97,7 @@ const Certificate = () => {
           </div>
         </Row>
       </div>
+      <div className={style.margin}></div>
     </>
   );
 };
