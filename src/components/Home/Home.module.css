@@ -110,6 +110,7 @@ span.search {
     max-width: 380px;
     position: relative;
     margin-top: 10px;
+    margin: auto;
   }
   .contenar .content .input input {
     height: 38px;
