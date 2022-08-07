@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import style from "./Home.module.css";
 import { Link } from "react-router-dom";
@@ -10,10 +10,13 @@ import Footer from "../Footer/Footer";
 
 const Home = () => {
   const [show, setShow] = useState(false);
+  const inputSearch = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [url, setUrl] = useState("");
-
+  useEffect(() => {
+    inputSearch.current.focus();
+  }, []);
   const handleChange = (text) => {
     const type = text.includes(" ");
     if (type === true) {
@@ -36,7 +39,7 @@ const Home = () => {
       })
       .catch((err) => {
         document.body.style.cursor = "default";
-        console.log(err);
+
         setShow(true);
       });
   };
@@ -63,6 +66,7 @@ const Home = () => {
               placeholder="Search For Employee's Or Intern's"
               onChange={(e) => handleChange(e.target.value)}
               onKeyUp={clickEnter}
+              ref={inputSearch}
               className="input"
             />
 

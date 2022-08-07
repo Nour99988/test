@@ -22,10 +22,8 @@ export default function Login() {
     password: "IdV$Ju84q3360Sq",
   });
   const handleSubmet = (e) => {
-    // console.log(e);
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, [name]: value }));
-    console.log(data);
   };
   const handleSubmition = (e) => {
     e.preventDefault();
@@ -34,12 +32,10 @@ export default function Login() {
   };
   useEffect(() => {
     if (Object.keys(formError).length === 0 && isSubmit) {
-      console.log(data);
       sendData();
     }
   }, [formError]);
   const validation = (value) => {
-    // console.log("vvvvv",value);
     const errors = {};
     if (!value.username) {
       errors.username = "username is required !!";
@@ -58,15 +54,12 @@ export default function Login() {
     await axios
       .post("https://focalx-cert-generator.herokuapp.com/v1/auth/signin", body)
       .then((res) => {
-        console.log(res);
         navigate("/");
         setCookie("token", res.data.token, { path: "/" });
         dispatch(setAdmin({ isLogin: "admin" }));
         document.body.style.cursor = "default";
       })
       .catch((err) => {
-        console.log(err.response.data.error);
-        console.log("errrrrr");
         setShow(true);
         if (err.response.data.error === "wrong username or password") {
           document.body.style.cursor = "default";

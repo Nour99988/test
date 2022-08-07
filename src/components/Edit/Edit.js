@@ -126,7 +126,7 @@ export default function Edit() {
       })
       .then((res) => {
         setContentModal("لقد تمت التعديل بنجاح");
-        console.log(res);
+
         setShow(true);
         document.body.style.cursor = "default";
       })
@@ -134,7 +134,6 @@ export default function Edit() {
         document.body.style.cursor = "default";
         setShow(true);
         setContentModal(" تأكد من الاتصال بالانترنت ");
-        console.log(err);
       });
   };
   return (

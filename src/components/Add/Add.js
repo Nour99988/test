@@ -83,7 +83,6 @@ const Add = () => {
     return errors;
   };
   useEffect(() => {
-    console.log(formError);
     if (Object.keys(formError).length === 0 && isSubmit) {
       sendData();
     }

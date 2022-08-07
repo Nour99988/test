@@ -11,6 +11,9 @@
 .hadding {
   color: #eb8324 !important;
 }
+h1 {
+  text-transform: capitalize;
+}
 .image {
   width: 286px;
   float: right;

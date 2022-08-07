@@ -13,9 +13,7 @@ export default function ViewUser() {
 
   useEffect(() => {
     setData(member);
-    console.log(member);
   }, [state]);
-  console.log(data);
 
   return (
     <>

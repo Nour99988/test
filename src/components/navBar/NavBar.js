@@ -12,7 +12,7 @@ const NavBar = () => {
   const isAdminFromRedux = useSelector((state) => state.isAdmin);
   const logout = () => {
     removeCookie("token", { path: "/" });
-    console.log(location);
+
     navigate("/");
     window.location.reload();
   };

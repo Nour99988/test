@@ -61,7 +61,6 @@ const Users = () => {
   // };
   const proupDelete = async (id, name) => {
     setIdForDel(id);
-    console.log(name);
     setContent("Do You Want Remove " + name);
     setShow(true);
     setRemoveButton(true);
@@ -80,14 +79,12 @@ const Users = () => {
           },
         })
         .then((res) => {
-          console.log(res);
           const newMembers = member.filter((mem) => mem.memberId !== id);
           setMember(newMembers);
           dispatch(setDeleteMember(newMembers));
           document.body.style.cursor = "default";
         })
         .catch((err) => {
-          console.log(err);
           document.body.style.cursor = "default";
         });
     } else if (!del) {

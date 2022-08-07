@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 const Certificate = () => {
   const member = useSelector((state) => state.member);
   const navigate = useNavigate();
-  console.log(member);
   const ref = React.createRef();
   const options = {
     orientation: "landscape ",
@@ -17,7 +16,7 @@ const Certificate = () => {
   };
   useEffect(() => {
     if (Object.keys(member).length === 0) {
-      // navigate("/");
+      navigate("/");
     }
   }, [member]);
   return (
