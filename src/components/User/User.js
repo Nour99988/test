@@ -9,6 +9,8 @@ import { useCookies } from "react-cookie";
 import Loading from "../Loading/Loading";
 import { setDeleteMember } from "../../redux/action/employeesAction";
 import Modal from "../Modal/Modal";
+import Pagination from "./Pagination";
+import { margin } from "@mui/system";
 
 const Users = () => {
   const [cookies] = useCookies("token");
@@ -22,6 +24,16 @@ const Users = () => {
   const dispatch = useDispatch();
   const [member, setMember] = useState([]);
   const state = useSelector((state) => state.allMembers);
+
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPrePage, setPostPrePage] = useState(9);
+  const indexOfLastPost = currentPage * postPrePage;
+  const indOfFirstPost = indexOfLastPost - postPrePage;
+  // const [currentPost, setCurrentPost] = useState( member.slice(indOfFirstPost, indexOfLastPost))
+  const currentPost = member.slice(indOfFirstPost, indexOfLastPost);
+  const Paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   const fetchEmployees = async () => {
     await axios
       .get("https://focalx-cert-generator.herokuapp.com/v1/members", {
@@ -44,21 +56,6 @@ const Users = () => {
     setMember(state);
   }, [state]);
 
-  // const Handlerender = (e) => {
-  //   const { value } = e.target;
-  //   if (value === "Intern") {
-  //     const Interns = state.filter((emp) => emp.isIntern === true);
-  //     setMember(Interns);
-  //     console.log(member);
-  //   } else if (value === "Employee") {
-  //     const employees = state.filter((emp) => emp.isEmployee === true);
-  //     setMember(employees);
-  //     console.log(member);
-  //   } else if (value === "all") {
-  //     setMember(state);
-  //     console.log(member);
-  //   }
-  // };
   const proupDelete = async (id, name) => {
     setIdForDel(id);
     setContent("Do You Want Remove " + name);
@@ -91,7 +88,7 @@ const Users = () => {
       return;
     }
   };
-  const render = member.map((user) => {
+  const render = currentPost.map((user) => {
     return (
       <Fragment key={user.memberId}>
         <div className="col-md-4 mt-40">
@@ -122,6 +119,7 @@ const Users = () => {
     handelSearch();
   }, [search]);
   const handelSearch = () => {
+    setCurrentPage(1);
     let reg = new RegExp(search, "ig");
     let resultSearch = state.filter((item) => {
       return (
@@ -136,17 +134,11 @@ const Users = () => {
 
   return (
     <>
-      {/* <form className={style.form}>
-        <select onClick={(e) => Handlerender(e)} className={style.select}>
-          <option value="all">all Members</option>
-          <option value="Employee">Employee</option>
-          <option value="Intern">Intern</option>
-        </select>
-      </form> */}
       <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} className={style.search} />
+      <Pagination postPrePage={postPrePage} totalPosts={member.length} Paginate={Paginate} />
       {state.length ? (
         <>
-          <div className="content" style={{ padding: "30px" }}>
+          <div className="content" style={{ padding: "10px 30px", marginTop: "-25px" }}>
             <Row className="m-0">{render}</Row>
           </div>
         </>

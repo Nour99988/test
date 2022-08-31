@@ -76,7 +76,6 @@ const Home = () => {
             </span>
           </div>
         </div>
-        <Link to="/login">log in</Link>
       </div>
       <Footer />
       {show && <Modal close={setShow} content="NOT FOUND" />}

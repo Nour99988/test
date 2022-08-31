@@ -45,6 +45,9 @@
   position: relative;
   left: 50%;
 }
+.content {
+  padding: 0px 30px 10px;
+}
 .content .card {
   border: 1px solid #282828;
   border-radius: 41px 0;
@@ -55,4 +58,11 @@
   font-size: 25px;
   text-align: center;
   margin-top: 250px;
+}
+
+.pagination {
+  justify-content: center;
+}
+.pagination > li {
+  cursor: pointer;
 }
